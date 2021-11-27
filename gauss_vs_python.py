@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# importamos la funcion alive_bar del modulo alive_progress
+# sirve para presentar una barra de progreso en la terminal
 from alive_progress import alive_bar
 
 def sum_trad(x):
@@ -17,6 +19,8 @@ def gauss_vs_python(r):
     hipotesis = True
     print(f'Probando la formula de Gauss con el rango de numeros 0-{r}')   
 
+    # inicializamos el objeto alive_bar
+    # usamos el mismo rango con el que vamos a iterar mas adelante
     with alive_bar(r + 1) as bar:
 
         for x in range(r + 1):
@@ -26,6 +30,8 @@ def gauss_vs_python(r):
                 print(f'Error para x = {x}')
                 break
             
+            # llamamos a la funcion despues de cada iteracion
+            # esto registra el progreso
             bar()
 
     if hipotesis:
